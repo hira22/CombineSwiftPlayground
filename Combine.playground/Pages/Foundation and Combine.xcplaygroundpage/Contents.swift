@@ -7,10 +7,13 @@ import UIKit
 /*:
  ## Foundation and Combine
  Foundation adds Combine publishers for many types, like:
+
+  Foundationでは、Combineパブリッシャーを多くの種類に追加しています。
  */
 
 /*:
  ### A URLSessionTask publisher and a JSON Decoding operator
+ ### URLSessionTaskパブリッシャーとJSON Decodingオペレーター
  */
 struct DecodableExample: Decodable { }
 
@@ -35,6 +38,9 @@ Just(28)
 ### A Timer publisher exposing Cocoa's `Timer`
 - this one is a bit special as it is a `Connectable`
 - ... use `autoconnect` to automatically start it when a subscriber subscribes
+
+- これは、`Connectable`であるため、少し特別なものです。
+- ... `autoconnect` を使って、サブスクライバーが登録したときに自動的に起動します。
 */
 let publisher = Timer
 	.publish(every: 1.0, on: .main, in: .common)

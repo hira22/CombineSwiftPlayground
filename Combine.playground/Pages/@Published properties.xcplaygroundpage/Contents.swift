@@ -9,6 +9,10 @@ import Combine
  A [Property Wrapper](https://www.avanderlee.com/swift/property-wrappers/) that adds a `Publisher` to any property.
 
  _Note: Xcode Playgrounds don't support running this Playground page with the @Published property unfortunately._
+
+任意のプロパティに`Publisher`を追加する[Property Wrapper](https://www.avanderlee.com/swift/property-wrappers/)です。
+
+ _Note：Xcode Playgroundsは、残念ながら@PublishedプロパティでこのPlaygroundページを実行することをサポートしていません。
  */
 final class FormViewModel {
     @Published var isSubmitAllowed: Bool = true
@@ -21,7 +25,7 @@ final class FormViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-		
+
 		// subscribe to a @Published property using the $ wrapped accessor
         viewModel.$isSubmitAllowed
             .receive(on: DispatchQueue.main)
@@ -42,6 +46,8 @@ print("Button enabled is \(formViewController.submitButton.isEnabled)")
 - a class inheriting from `ObservableObject` automagically synthesizes an observable
 - ... which fires whenever any of the `@Published` properties of the class change
 
+- `ObservableObject` を継承したクラスは，自動的に observable を合成します．
+- ... クラスの `@Published` プロパティが変更されたときに発生します。
 */
 print("\n* Demonstrating ObservableObject")
 

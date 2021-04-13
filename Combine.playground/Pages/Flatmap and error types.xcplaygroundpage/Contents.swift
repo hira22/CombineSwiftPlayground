@@ -11,8 +11,13 @@ import Combine
 - ... values all get _flattened_ into a single stream of values
 - ... it looks like Swift's `flatMap` where you flatten inner arrays of an array, just asynchronous.
 
+- `flatmap`では、上流のパブリッシャーから値を取得するたびに、新しいパブリッシャーを提供します。
+- ... 値はすべて _flattened_ して、単一の値のストリームになります。
+- ... Swiftの`flatMap`のように、配列の内側の配列を平らにすることができますが、非同期です。
+
 ## matching error types
 - use `mapError` to map a failure into a different error type
+- 失敗を別のエラータイプにマッピングするには、`mapError` を使用します。
 */
 
 //: define the error type we need

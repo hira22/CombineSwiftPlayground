@@ -9,6 +9,13 @@ import Combine
  __Specifics__:
  - Publishers are _typed_ to the data and error types they can emit
  - A publisher can emit, zero, one or more values and terminate gracefully or with an error of the type it declared.
+
+  - パブリッシャーは値を _publish_ します ...
+ - サブスクライバーはパブリッシャーの値を受け取るために _購読します_ 。
+
+ _Specifics__:
+ - パブリッシャーは発行できるデータとエラーの _タイプが決まって_ います。
+ - パブリッシャーは0個、1個、または複数の値を出力し、 宣言したタイプのエラーを出して潔く終了することができます。
  */
 
 /*:

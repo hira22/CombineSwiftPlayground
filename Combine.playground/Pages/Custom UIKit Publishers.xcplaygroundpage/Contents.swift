@@ -5,6 +5,8 @@ import Combine
  [Previous](@previous)
  ## Custom UIKit Publishers
  Unfortunately, not all UIKit elements are ready to use with Combine. A UISwitch, for example, does not support KVO. Therefore, custom UIKit publishers.
+
+  残念ながら、すべてのUIKit要素がCombineで使用できるわけではありません。例えば、UISwitch は KVO をサポートしていません。そのため、カスタムUIKitパブリッシャー
  */
 /// A custom subscription to capture UIControl target events.
 final class UIControlSubscription<SubscriberType: Subscriber, Control: UIControl>: Subscription where SubscriberType.Input == Control {
@@ -51,6 +53,8 @@ struct UIControlPublisher<Control: UIControl>: Publisher {
 
     /// This function is called to attach the specified `Subscriber` to this `Publisher` by `subscribe(_:)`
     ///
+    /// この関数は、指定された `Subscriber` を `subscribe(_:)` によってこの `Publisher` にアタッチするために呼び出されます。
+    ///
     /// - SeeAlso: `subscribe(_:)`
     /// - Parameters:
     ///     - subscriber: The subscriber to attach to this `Publisher`.
@@ -72,8 +76,8 @@ extension CombineCompatible where Self: UIControl {
 /*:
  ## Responding to UITouch events
  #### With the above, we can easily create a publisher to listen for `UIButton` events as an example.
+ #### 以上のことから、例として`UIButton`イベントをリッスンするパブリッシャーを簡単に作ることができます。
  */
-/// With the above, we can easily create a publisher to listen for `UIButton` events as an example.
 let button = UIButton()
 let subscription = button.publisher(for: .touchUpInside).sink { button in
     print("Button is pressed!")
@@ -84,6 +88,7 @@ subscription.cancel()
 /*:
  ## Solving the UISwitch KVO problem
  #### As the `UISwitch.isOn` property does not support KVO this extension can become handy.
+ #### UISwitch.isOn` プロパティは KVO をサポートしていないので、この拡張機能は便利なものになります。
  */
 extension CombineCompatible where Self: UISwitch {
     /// As the `UISwitch.isOn` property does not support KVO this publisher can become handy.
@@ -102,6 +107,8 @@ switcher.isOnPublisher.assign(to: \.isEnabled, on: submitButton)
 
 /// As the `isOn` property is not sending out `valueChanged` events itself, we need to do this manually here.
 /// This is the same behavior as it would be if the user switches the `UISwitch` in-app.
+/// `isOn` プロパティが `valueChanged` イベントを送信していないので、ここでは手動で行う必要があります。
+/// これは、ユーザーがアプリ内で `UISwitch` を切り替えた場合と同じ動作になります。
 switcher.isOn = true
 switcher.sendActions(for: .valueChanged)
 print(submitButton.isEnabled)

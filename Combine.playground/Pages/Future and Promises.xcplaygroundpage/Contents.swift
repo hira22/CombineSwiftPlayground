@@ -9,6 +9,10 @@ import Combine
 - a `Future` delivers exactly one value (or an error) and completes
 - ... it's a lightweight version of publishers, useful in contexts where you'd use a closure callback
 - ... allows you to call custom methods and return a Result.success or Result.failure
+
+- `Future`は、正確に1つの値（またはエラー）を配信して終了します。
+- ... パブリッシャーを軽量化したもので、クロージャのコールバックを使用するような状況で役立ちます。
+- ... カスタムメソッドを呼び出して、Result.success または Result.failure を返すことができます。
 */
 
 struct User {

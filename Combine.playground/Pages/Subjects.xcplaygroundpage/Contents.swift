@@ -8,6 +8,11 @@ import Combine
 - ... relays values it receives from other publishers ...
 - ... can be manually fed with new values
 - ... subjects as also subscribers, and can be used with `subscribe(_:)`
+
+- サブジェクトはパブリッシャーである...
+- 他のパブリッシャーから受け取った値を中継する。
+- ... 新しい値を手動で入力することもできます。
+- ... サブジェクトはサブスクライバーでもあり， `subscribe(_:)` と併用することができます．
 */
 
 /*:

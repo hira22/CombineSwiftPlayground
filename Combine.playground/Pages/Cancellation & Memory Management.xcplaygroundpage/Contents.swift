@@ -9,6 +9,10 @@ import UIKit
 A subscription returns a `Cancellable` object
 
 Correct memory management using `Cancellable` makes sure you're not retaining any references.
+
+サブスクリプションは `Cancellable` オブジェクトを返します。
+
+`Cancellable`を使った正しいメモリ管理は、いかなる参照も保持しないようにします。
 */
 
 class MyClass {

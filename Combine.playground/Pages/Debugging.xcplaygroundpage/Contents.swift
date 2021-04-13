@@ -6,6 +6,7 @@ import Combine
 /*:
 ## Debugging
 Operators which help debug Combine publishers
+Combineパブリッシャーのデバッグに役立つオペレーター
 
 More info: [https://www.avanderlee.com/debugging/combine-swift/‎](https://www.avanderlee.com/debugging/combine-swift/‎)
 */
@@ -19,6 +20,10 @@ enum ExampleError: Swift.Error {
 Can be used combined with breakpoints for further insights.
 - exposes all the possible events happening inside a publisher / subscription couple
 - very useful when developing your own publishers
+
+ブレイクポイントと組み合わせて使用することで、より詳細な情報を得ることができます。
+- パブリッシャーとサブスクリプションのカップルの中で発生する可能性のあるすべてのイベントを公開します。
+- 独自のパブリッシャーを開発する際に非常に便利
 */
 let subject = PassthroughSubject<String, ExampleError>()
 let subscription = subject
@@ -48,6 +53,8 @@ subscription.cancel()
 /*:
 ### `print(_:)`
 Prints log messages for every event
+
+イベントごとにログメッセージを表示
 */
 
 let printSubscription = subject
@@ -67,6 +74,8 @@ printSubscription.cancel()
 /*:
 ### `breakpoint(_:)`
 Conditionally break in the debugger when specific values pass through
+
+特定の値を通過するとデバッガが条件付きでブレークする
 */
 let breakSubscription = subject
 	.breakpoint(receiveOutput: { value in
